@@ -1,6 +1,6 @@
 # SemiProject - SuperJuni5
 
-# ![강아지](https://user-images.githubusercontent.com/73421820/112724211-97667b00-8f55-11eb-997b-520fc526278c.png) 개요 
+# ![강아지](https://user-images.githubusercontent.com/73421820/112724211-97667b00-8f55-11eb-997b-520fc526278c.png)  개요 
 
 * 프로젝트 명 : 뭉개뭉개
 * 일정 :2020.12.07 ~ 2021.01.15
