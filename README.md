@@ -100,7 +100,7 @@
 
 ### 숙소 삭제하기
 - 화면 설명 : 해당 숙소를 업로드한 업체 회원으로 로그인하면 삭제 버튼이 나타납니다.
-![숙소삭제](https://user-images.githubusercontent.com/73421820/112727121-3d20e680-8f64-11eb-985e-5bb795871522.gif)
+![숙소삭제](https://user-images.githubusercontent.com/73421820/112727221-c59f8700-8f64-11eb-803e-90aebe9650a6.gif)
 
 - 구현 기능 설명
     - 삭제 버튼을 누르면 confirm창이 뜹니다.
