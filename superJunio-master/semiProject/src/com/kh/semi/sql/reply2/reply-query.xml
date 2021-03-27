@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<!-- 게시글 목록 조회 -->
+<entry key="selectList">
+SELECT TRIP_REPLY, TRIP_REPLY_CONTENT, TRIP_REPLY_DT, MEM_ID 
+FROM TV_REPLY
+WHERE TRIP_REPLY_STATUS = 'N'
+AND TRIP_BOARD_NO = ?
+</entry>
+
+
+<!-- 댓글 작성 -->
+<entry key="insertReply">
+INSERT INTO TRIP_REVIEW_REPLY
+VALUES(SEQ_TRNO.NEXTVAL, ?, DEFAULT, DEFAULT, ?, ?)
+</entry>
+
+
+<!-- 댓글 수정 -->
+<entry key="updateReply">
+UPDATE TRIP_REVIEW_REPLY SET
+TRIP_REPLY_CONTENT = ?
+WHERE TRIP_REPLY = ?
+</entry>
+
+
+<!-- 댓글 삭제 -->
+<entry key="updateReplyStatus">
+UPDATE TRIP_REVIEW_REPLY SET
+TRIP_REPLY_STATUS = 'Y'
+WHERE TRIP_REPLY = ?
+</entry>
+
+</properties>
