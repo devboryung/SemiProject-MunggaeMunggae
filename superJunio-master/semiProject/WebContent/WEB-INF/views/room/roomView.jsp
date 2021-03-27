@@ -287,7 +287,7 @@
 	<script>
 		/*삭제 버튼 클릭했을 때  */
 		$("#deleteBtn").on("click", function() {
-			if (confirm("해당 병원을 삭제하시겠습니까?")) {
+			if (confirm("해당 숙소를 삭제하시겠습니까?")) {
 				location.href = "delete?roomNo=${param.roomNo}"
 			}
 		});

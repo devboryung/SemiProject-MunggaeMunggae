@@ -1,231 +1,246 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-   
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>동물병원 등록</title>
 <!-- css연결  -->
-<link rel="stylesheet" href="${contextPath}/resources/css/hospital/hospitalInsert.css" type="text/css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/hospital/hospitalInsert.css"
+	type="text/css">
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/views/common/otherHeader.jsp"></jsp:include>
-<!-- 동물병원 등록하기 -->
+	<jsp:include page="/WEB-INF/views/common/otherHeader.jsp"/>
+	<!-- 동물병원 등록하기 -->
 
 
 
-    <div class="wrapper">
+	<div class="wrapper">
 
-        <div class="main">
+		<div class="main">
 
-            <div class="row-item">
-                <div id="page_name">병원 등록</div>
-                <hr id="hr_tag">
-            </div>
-            
-            
-            <!-- COS.JAR 이용해서 파일 업로드 -->
-            <div class="insert_hospital">
-                <form action="${contextPath }/hospital/insert" method="post"  
-                      enctype="multipart/form-data"  role="form" onsubmit="return hospitalInsertValidate();">
-                    
-                    <div class="row-item">
-                        <div class="label_name">
-                            <label for="location1">
-                            	<span class="highlighter">지역</span>
-                            </label>
-                        </div>
-                        <div class="input_tag">
-                            <select class="full_input" id="location1" name="location1" required>
-                                <option value="강원도">강원도</option>
-                                <option value="경기도">경기도</option>
-                                <option value="경상도">경상도</option>
-                                <option value="광주">광주</option>
-                                <option value="대구">대구</option>
-                                <option value="대전">대전</option>
-                                <option value="부산">부산</option>
-                                <option value="서울" selected>서울</option>
-                                <option value="세종">세종</option>
-                                <option value="울산">울산</option>
-                                <option value="인천">인천</option>
-                                <option value="전라도">전라도</option>
-                                <option value="제주">제주</option>
-                                <option value="충청도">충청도</option>
-                            </select>
-                        </div>
-                    </div>
+			<div class="row-item">
+				<div id="page_name">병원 등록</div>
+				<hr id="hr_tag">
+			</div>
 
 
+			<!-- COS.JAR 이용해서 파일 업로드 -->
+			<div class="insert_hospital">
+				<form action="${contextPath }/hospital/insert" method="post"
+					enctype="multipart/form-data" role="form"
+					onsubmit="return hospitalInsertValidate();">
 
-                    <div class="row-item">
-                        <div class="label_name">
-                            <label for="companyName">
-                            	<span class="highlighter">병원명</span>
-                            </label>
-                            	
-                        </div>
-                        <div class="input_tag">
-                            <input type="text" class="full_input" id="companyName"  name="hospNm" placeholder="병원명을 입력해 주세요." autocomplete="off" required>
-                        </div>
-                    </div>
-
-                    <div class="row-item">
-                        <div class="label_name">
-                            <label for="phone">
-                            	<span class="highlighter">전화번호</span>
-                            </label>
-                        </div>
-                        <div class="input_tag">
-                            <select class="phone" id="phone1" name="phone1" required> 
-                                <option>02</option>
-                                <option>031</option>
-                                <option>032</option>
-                                <option>033</option>
-                                <option>041</option>
-                                <option>042</option>
-                                <option>043</option>
-                                <option>044</option>
-                                <option>051</option>
-                                <option>052</option>
-                                <option>053</option>
-                                <option>054</option>
-                                <option>055</option>
-                                <option>061</option>
-                                <option>062</option>
-                                <option>063</option>
-                                <option>064</option>
-                                <option>070</option>
-                            </select>
-                            &nbsp;-&nbsp;&nbsp;
-                            <input type="number" class="phone phoneTest" id="phone2" name="phone2"  required>
-                            &nbsp;-&nbsp;
-                            <input type="number" class="phone phoneTest" id="phone3" name="phone3"  required>
-                        </div>
-                    </div>
-
-                    
-                    <div class="row-item">
-                        <div class="label_name">
-                            <label for="location2">
-                            	<span class="highlighter">상세주소</span>
-                            </label>
-                        </div>
-                        <div class="input_tag">
-                            <input type="text" class="full_input" id="location2" name="location2" placeholder="상세주소를 입력해 주세요." autocomplete="off" required>
-                        </div>
-                    </div>
-
-                    <div class="row-item">
-                        <div class="label_name">
-                            <label for="office_hours">
-                            	<span class="highlighter">영업시간</span>
-                            </label>
-                        </div>
-                        <div class="input_tag">
-
-                            <input type="text" class="office_hours" id="openTime" placeholder="00:00" name="openTime" autocomplete="off" required>
-                            &nbsp;~&nbsp;&nbsp;
-                            <input type="text" class="office_hours" id="closeTime" placeholder="00:00" name="closeTime" autocomplete="off" required>
-                        </div>
-                    </div>
-
-                    <div class="row-item">
-                        <div class="label_name">
-                            <label for="facility">
-                            	<span class="highlighter">병원 시설</span>
-                            </label>
-                        </div>
-                        <div class="input_tag">
-                           <label for="Wifi" style="cursor:pointer"><input type="checkbox" class="facility" name="hosp_facility" id="Wifi" value="WiFi">WiFi</label>
-                           <label for="parcking" style="cursor:pointer"><input type="checkbox" class="facility" name="hosp_facility" id="parcking" value="주차">주차</label>
-                           <label for="appointment" style="cursor:pointer"><input type="checkbox" class="facility" name="hosp_facility" id="appointment" value="예약">예약</label>
-                          <label for="24hour" style="cursor:pointer"> <input type="checkbox" class="facility" name="hosp_facility" id="24hour" value="24시간">24시간</label>
-                        </div>
-                    </div>
+					<div class="row-item">
+						<div class="label_name">
+							<label for="location1"> <span class="highlighter">지역</span>
+							</label>
+						</div>
+						<div class="input_tag">
+							<select class="full_input" id="location1" name="location1"
+								required>
+								<option value="강원도">강원도</option>
+								<option value="경기도">경기도</option>
+								<option value="경상도">경상도</option>
+								<option value="광주">광주</option>
+								<option value="대구">대구</option>
+								<option value="대전">대전</option>
+								<option value="부산">부산</option>
+								<option value="서울" selected>서울</option>
+								<option value="세종">세종</option>
+								<option value="울산">울산</option>
+								<option value="인천">인천</option>
+								<option value="전라도">전라도</option>
+								<option value="제주">제주</option>
+								<option value="충청도">충청도</option>
+							</select>
+						</div>
+					</div>
 
 
-                    <div class="row-item">
-                        <div class="label_name" style="vertical-align:80px;" >
-                            <label for="hospital_info" >
-                            	<span class="highlighter">동물병원 정보</span>
-                            </label>
-                        </div>
-                        <div class="input_tag">
-                            <textarea class="full_input hospital_info" id="hospital_info" rows="10"
-                                name ="hospital_info" placeholder="동물병원 상세 정보를 작성해 주세요."></textarea>
-                        </div>
-                    </div>
-                    
-                    
+
+					<div class="row-item">
+						<div class="label_name">
+							<label for="companyName"> <span class="highlighter">병원명</span>
+							</label>
+
+						</div>
+						<div class="input_tag">
+							<input type="text" class="full_input" id="companyName"
+								name="hospNm" placeholder="병원명을 입력해 주세요." autocomplete="off"
+								required>
+						</div>
+					</div>
+
+					<div class="row-item">
+						<div class="label_name">
+							<label for="phone"> <span class="highlighter">전화번호</span>
+							</label>
+						</div>
+						<div class="input_tag">
+							<select class="phone" id="phone1" name="phone1" required>
+								<option>02</option>
+								<option>031</option>
+								<option>032</option>
+								<option>033</option>
+								<option>041</option>
+								<option>042</option>
+								<option>043</option>
+								<option>044</option>
+								<option>051</option>
+								<option>052</option>
+								<option>053</option>
+								<option>054</option>
+								<option>055</option>
+								<option>061</option>
+								<option>062</option>
+								<option>063</option>
+								<option>064</option>
+								<option>070</option>
+							</select> &nbsp;-&nbsp;&nbsp; <input type="number" class="phone phoneTest"
+								id="phone2" name="phone2" required> &nbsp;-&nbsp; <input
+								type="number" class="phone phoneTest" id="phone3" name="phone3"
+								required>
+						</div>
+					</div>
+
+
+					<div class="row-item">
+						<div class="label_name">
+							<label for="location2"> <span class="highlighter">상세주소</span>
+							</label>
+						</div>
+						<div class="input_tag">
+							<input type="text" class="full_input" id="location2"
+								name="location2" placeholder="상세주소를 입력해 주세요." autocomplete="off"
+								required>
+						</div>
+					</div>
+
+					<div class="row-item">
+						<div class="label_name">
+							<label for="office_hours"> <span class="highlighter">영업시간</span>
+							</label>
+						</div>
+						<div class="input_tag">
+
+							<input type="text" class="office_hours" id="openTime"
+								placeholder="00:00" name="openTime" autocomplete="off" required>
+							&nbsp;~&nbsp;&nbsp; <input type="text" class="office_hours"
+								id="closeTime" placeholder="00:00" name="closeTime"
+								autocomplete="off" required>
+						</div>
+					</div>
+
+					<div class="row-item">
+						<div class="label_name">
+							<label for="facility"> <span class="highlighter">병원
+									시설</span>
+							</label>
+						</div>
+						<div class="input_tag">
+							<label for="Wifi" style="cursor: pointer"><input
+								type="checkbox" class="facility" name="hosp_facility" id="Wifi"
+								value="WiFi">WiFi</label> <label for="parcking"
+								style="cursor: pointer"><input type="checkbox"
+								class="facility" name="hosp_facility" id="parcking" value="주차">주차</label>
+							<label for="appointment" style="cursor: pointer"><input
+								type="checkbox" class="facility" name="hosp_facility"
+								id="appointment" value="예약">예약</label> <label for="24hour"
+								style="cursor: pointer"> <input type="checkbox"
+								class="facility" name="hosp_facility" id="24hour" value="24시간">24시간
+							</label>
+						</div>
+					</div>
+
+
+					<div class="row-item">
+						<div class="label_name" style="vertical-align: 80px;">
+							<label for="hospital_info"> <span class="highlighter">동물병원
+									정보</span>
+							</label>
+						</div>
+						<div class="input_tag">
+							<textarea class="full_input hospital_info" id="hospital_info"
+								rows="10" name="hospital_info"
+								placeholder="동물병원 상세 정보를 작성해 주세요."></textarea>
+						</div>
+					</div>
+
+
 
 					<!-- 파일 업로드  -->
 
-                    <div class="row-item">
-                    	<div class="label_name">
-							<label for="titleImgArea">
-								<span class="highlighter">썸네일</span>
+					<div class="row-item">
+						<div class="label_name">
+							<label for="titleImgArea"> <span class="highlighter">썸네일</span>
 							</label>
-                    	</div>
-					<div class="hospitalImg input_tag" id="titleImgArea">
-						<img id="titleImg" width="360" height="100" >
+						</div>
+						<div class="hospitalImg input_tag" id="titleImgArea">
+							<img id="titleImg" width="360" height="100">
+						</div>
 					</div>
-				</div>
 
-				<div class="row-item"  >
-					<div class="label_name">
-						<label class="img">
-							<span class="highlighter">업로드 이미지</span>
-						</label>
+					<div class="row-item">
+						<div class="label_name">
+							<label class="img"> <span class="highlighter">업로드
+									이미지</span>
+							</label>
+						</div>
+						<div class="input_tag">
+							<div class="hospitalImg imgarea" id="hotpitalImgArea1"
+								style="margin-right: 5px;">
+								<img id="hospitalImg1" width="65" height="65">
+							</div>
+							<div class="hospitalImg imgarea" id="hotpitalImgArea2"
+								style="margin-right: 4px;">
+								<img id="hospitalImg2" width="65" height="65">
+							</div>
+							<div class="hospitalImg imgarea" id="hotpitalImgArea3"
+								style="margin-right: 5px;">
+								<img id="hospitalImg3" width="65" height="65">
+							</div>
+							<div class="hospitalImg imgarea" id="hotpitalImgArea4"
+								style="margin-right: 5px;">
+								<img id="hospitalImg4" width="65" height="65">
+							</div>
+							<div class="hospitalImg imgarea" id="hotpitalImgArea5">
+								<img id="hospitalImg5" width="65" height="65">
+							</div>
+						</div>
 					</div>
-					<div class="input_tag">
-						<div class="hospitalImg imgarea" id="hotpitalImgArea1" style="margin-right:5px;">
-							<img id="hospitalImg1" width="65" height="65" >
-						</div>
-						<div class="hospitalImg imgarea" id="hotpitalImgArea2" style="margin-right:4px;">
-							<img id="hospitalImg2" width="65" height="65" >
-						</div>
-						<div class="hospitalImg imgarea" id="hotpitalImgArea3" style="margin-right:5px;"> 
-							<img id="hospitalImg3" width="65" height="65" >
-						</div>
-						<div class="hospitalImg imgarea" id="hotpitalImgArea4" style="margin-right:5px;">	
-							<img id="hospitalImg4" width="65" height="65" >
-						</div>	
-						<div class="hospitalImg imgarea" id="hotpitalImgArea5">	
-							<img id="hospitalImg5" width="65" height="65">
-						</div>
-					</div>
-				</div>
-			
-			<!-- 파일 업로드 버튼 (숨기기) -->
+
+					<!-- 파일 업로드 버튼 (숨기기) -->
 					<div id="fileArea">
 						<input type="file" id="img0" name="img0" onchange="LoadImg(this,0)">
-						<!-- multiple 속성 = 사진 여러개 선택 가능  --> 
+						<!-- multiple 속성 = 사진 여러개 선택 가능  -->
 						<input type="file" id="img1" name="img1" onchange="LoadImg(this,1)"> 
-						<input type="file" id="img2" name="img2" onchange="LoadImg(this,2)"> 
+						<input type="file" id="img2" name="img2" onchange="LoadImg(this,2)">
 						<input type="file" id="img3" name="img3" onchange="LoadImg(this,3)">
-						<input type="file" id="img4" name="img4" onchange="LoadImg(this,4)">
-						<input type="file" id="img5" name="img4" onchange="LoadImg(this,5)">
+						<input type="file" id="img4" name="img4" onchange="LoadImg(this,4)"> 
+						<input type="file" id="img5" name="img5" onchange="LoadImg(this,5)">
 					</div>
 
 
 
-                    <!-- 등록 / 취소 버튼  -->
-                    <div class="row-item">
-                        <div class="btn_item">
-                            <button class= "btn_class"  id="insertBtn" type="submit">등록</button>
-                            <button class= "btn_class"  id="resetBtn" type="reset">취소</button>
-                        </div>
-                    </div>
-                </form>
-	        </div>
-	    </div>
+					<!-- 등록 / 취소 버튼  -->
+					<div class="row-item">
+						<div class="btn_item">
+							<button class="btn_class" id="insertBtn" type="submit">등록</button>
+							<button class="btn_class" id="resetBtn" type="reset">취소</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
-<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 
-<script>
+	<script>
 
 /* 취소 버튼  */
 $("#resetBtn").on("click",function(){

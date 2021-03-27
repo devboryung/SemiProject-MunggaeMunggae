@@ -232,7 +232,6 @@
 
     	
     	/* 병원정보에 내용이 입력이 안 된다면*/
-    	
     	if ($("#room_info").val().trim().length ==0){
     		alert("숙소 정보를 입력해 주세요.");
     		$("#room_info").focus();

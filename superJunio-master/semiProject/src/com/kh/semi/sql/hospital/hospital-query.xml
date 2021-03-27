@@ -117,6 +117,5 @@ WHERE FILE_NO =?
 UPDATE HOSPITAL SET
 HOSP_DEL_FL = 'Y'
 WHERE HOSP_NO = ?
-
 </entry>
 </properties>
