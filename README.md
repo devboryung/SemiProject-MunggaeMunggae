@@ -11,7 +11,7 @@
   - 사용 프로그램 : Java Eclipse , Oracle, SQL Developer, VS Code
   - 사용 기술 : Servlet , JSP, HTML5, CSS3, javascript, jQuery
   - API : KAKAO MAP API
-  - 라이브러리 (cos.jar/ gson-2.8.6.jar/ json-simple-1.1.1.jar/ mail-1.4.7.jar/ojdbc6.jar/taglibs-standard-impl-1.2.5.jar/taglibs-standard-jstlel-1.2.5.jar/taglibs-standard-spec-1.2.5.jar)
+  - 라이브러리 : cos.jar/ gson-2.8.6.jar/ json-simple-1.1.1.jar/ mail-1.4.7.jar/ojdbc6.jar/taglibs-standard-impl-1.2.5.jar/taglibs-standard-jstlel-1.2.5.jar/taglibs-standard-spec-1.2.5.jar
   - 형상 관리 : GitHub
 
 ------------
