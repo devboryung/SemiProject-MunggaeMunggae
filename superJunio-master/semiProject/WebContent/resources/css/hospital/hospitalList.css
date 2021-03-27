@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+/* ---------------------동물병원 조회 페이지-----------------------------------------------  */
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.wrapper {
+	width: 1100px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	/*     border : 1px solid sienna */
+}
+
+.hospital_list {
+	width: 60%;
+	margin: auto;
+	/*     border : 1px solid gold */
+}
+
+.row-item {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* ---------------------------검색창------------------------- */
+
+/* 배경화면  */
+.bg-image-full {
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+div.bg-image-full {
+	height: 400px;
+	text-align: center;
+	border-radius: 15px;
+	margin-bottom: 20px;
+}
+
+/* 검색 div */
+.search {
+	width: 38%;
+	height: 50px;
+	margin: auto;
+	margin-top: 20px;
+	border-right-width: 0px;
+	position: relative;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+
+/* 검색 옵션창 */
+#searchOption {
+	display: inline-block;
+	position: absolute;
+	left: 2%;
+	height: 100%;
+	width: 25%;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 1em;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 15px 0 0 15px;
+	border: none;
+}
+/* 옵션 창 선택시 테두리 없애기 */
+#searchOption:focus {
+	outline: none;
+}
+
+/* 검색어 입력 창  */
+.searchBar {
+	display: inline-block;
+	position: absolute;
+	transform: translate(-31%);
+	width: 75%;
+	height: 98%;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 0 15px 15px 0;
+	padding-left: 10px;
+}
+
+/* 검색 버튼 */
+#searchBtn {
+	height: 100%;
+	position: absolute;
+	left: 90%;
+	width: 60px;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
+/* 돋보기 아이콘  */
+#searchIcon {
+	position: absolute;
+	left: 20px;
+	top: 12px;
+	width: 25px;
+	height: 25px;
+	border: none;
+}
+
+/* 버튼 */
+.btn_class {
+	border: 1px solid #8bd2d6;
+	background-color: #8bd2d6;
+	cursor: pointer;
+	outline: none;
+}
+
+/* ----------------------지역 선택------------------------------- */
+.locationSelect {
+	margin: 0 0 30px 85%;
+}
+
+.locationNm {
+	background-color: fff;
+	font-size: 16px;
+	width: 75px;
+	border: 3px solid #8bd2d6;
+	border-radius: 5px;
+}
+
+/* -----------------------동물 병원 리스트----------------------------- */
+.thumbnail {
+	/*   background-color : burlywood; */
+	width: 100%;
+	height: 200px;
+	margin-bottom: 15px;
+	box-sizing: border-box;
+	display: table;
+}
+
+.thumbnail_img {
+	/*     border: 1px solid red; */
+	height: 100%;
+	width: 30%;
+	display: inline-block;
+	box-sizing: border-box;
+	display: table-cell;
+	table-layout: fixed;
+	vertical-align: middle;
+}
+
+.hospital_img {
+	width: 300px;
+	height: 200px;
+}
+
+.thumbnail_info {
+	/*    border: 1px solid green; */
+	height: 100%;
+	width: 60%;
+	display: inline-block;
+	box-sizing: border-box;
+	display: table-cell;
+	table-layout: fixed;
+	vertical-align: middle;
+}
+
+.hospital_info {
+	font-size: 13px;
+	margin: 0;
+}
+
+#hospital_name {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#hospital_name:hover {
+	color: #000;
+}
+
+.icon {
+	width: 10px;
+	height: 10px;
+	margin-right: 10px;
+}
+
+/* ------------------------글쓰기버튼---------------------------------- */
+#insertHospital {
+	width: 100px;
+	height: 40px;
+	margin: 40px 0 0 90%;
+	line-height: 20px;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 17px;
+}
+
+.btn_class:hover {
+	background-color: #17a2b8;
+}
+
+/*----------------------------페이징(부트스트랩)---------------------------------  */
+.paging {
+	margin-top: 100px;
+}
+
+.page-item>a {
+	color: black;
+	text-decoration: none;
+}
+
+.page-item>a:hover {
+	color: orange;
+}
+
+/* 상세페이지 이동 커서  */
+.numberSelect {
+	cursor: pointer;
+}
