@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<!-- 전체 게시글 수 조회 -->
+<entry key="getListCount"> 
+SELECT COUNT(*) FROM 
+V_QNA_BOARD 
+WHERE QNA_FL='Y' 
+</entry>
+
+<!-- 지정된 페이지 게시글 목록 조회 -->
+<entry key="selectQnaList"> 
+SELECT * FROM 
+(SELECT ROWNUM RNUM,V.* FROM (SELECT * FROM V_QNA_BOARD WHERE QNA_FL = 'Y' ORDER BY QNA_NO DESC)V) 
+WHERE RNUM BETWEEN ? AND ? 
+</entry>
+
+<!-- 공개된 글 게시글 수 조회 -->
+<entry key="getListPublicCount"> 
+SELECT COUNT(*) FROM 
+V_QNA_BOARD 
+WHERE QNA_FL='Y'
+AND QNA_PRIVATE ='N'
+</entry>
+
+
+<!-- 공개된 글 지정된 페이지 게시글 목록 조회 -->
+<entry key="selectQnaPublicList"> 
+SELECT * FROM 
+(SELECT ROWNUM RNUM,V.* FROM (SELECT * FROM V_QNA_BOARD WHERE QNA_FL = 'Y' AND QNA_PRIVATE ='N' ORDER BY QNA_NO DESC)V) 
+WHERE RNUM BETWEEN ? AND ? 
+</entry>
+
+<!-- 처리되지 않은 글 게시글 수 조회 -->
+<entry key="getListIncompleteCount"> 
+SELECT COUNT(*) FROM 
+V_QNA_BOARD 
+WHERE QNA_FL='Y'
+AND QNA_REPLY_RESPONSE ='N'
+</entry>
+
+<!-- 처리되지 않은 글 목록 조회 -->
+<entry key="selectIncompleteList"> 
+SELECT * FROM 
+(SELECT ROWNUM RNUM,V.* FROM (SELECT * FROM V_QNA_BOARD WHERE QNA_FL = 'Y' AND QNA_REPLY_RESPONSE ='N' ORDER BY QNA_NO)V) 
+WHERE RNUM BETWEEN ? AND ? 
+</entry>
+
+
+<!-- 나의문의내역 글 수 조회 -->
+<entry key="getPageMyQnaInfoCount"> 
+SELECT COUNT(*) FROM 
+V_QNA_BOARD 
+WHERE QNA_FL='Y'
+AND MEM_NO2 = ?
+</entry>
+
+
+<!-- 나의문의내역 글 목록 조회 -->
+<entry key="selectMyQnaList"> 
+SELECT * FROM 
+(SELECT ROWNUM RNUM,V.* FROM (SELECT * FROM V_QNA_BOARD WHERE QNA_FL = 'Y' AND MEM_NO2 = ? ORDER BY QNA_NO DESC)V) 
+WHERE RNUM BETWEEN ? AND ? 
+</entry>
+
+
+
+<!-- Qna 게시글 상세 조회 -->
+<entry key="selectQna"> SELECT * FROM V_QNA_BOARD WHERE QNA_NO = ? AND QNA_FL = 'Y' </entry>
+
+<!-- 조회수 증가 -->
+
+
+<entry key="increaseReadCount"> UPDATE QNA_BOARD SET QNA_READ_COUNT = QNA_READ_COUNT + 1 WHERE QNA_NO = ? </entry>
+
+<!-- Qna 게시글 번호 조회 -->
+
+
+<entry key="selectQnaNextNo"> SELECT SEQ_QNANO.NEXTVAL FROM DUAL </entry>
+
+<!-- Qna 게시글 삽입 -->
+
+
+<entry key="insertQna"> INSERT INTO QNA_BOARD(QNA_NO,QNA_TITLE,QNA_CONTENT, QNA_PRIVATE,MEM_NO2) VALUES(?,?,?,?,?) </entry>
+
+<!-- Qna 이미지정보 삽입 -->
+
+
+<entry key="insertQnaAttachment"> INSERT INTO QNA_BOARD_IMAGE VALUES(SEQ_QNAFILENO.NEXTVAL,?,?,?,?) </entry>
+
+<!-- Qna 이미지 조회 -->
+
+
+<entry key="selectQnaFiles"> SELECT QNA_IMAGE_NO,QNA_IMG_PATH,QNA_IMG_NAME,QNA_IMG_LEVEL FROM QNA_BOARD_IMAGE WHERE QNA_NO = ? ORDER BY QNA_IMG_LEVEL </entry>
+
+<!-- Qna 게시글 수정 -->
+
+
+<entry key="updateQna"> UPDATE QNA_BOARD SET QNA_TITLE =?, QNA_CONTENT = ?, QNA_PRIVATE=? WHERE QNA_NO = ? </entry>
+
+<!-- 파일 정보 수정 -->
+
+
+<entry key="updateAttachment"> 
+UPDATE QNA_BOARD_IMAGE SET 
+QNA_IMG_PATH =?, 
+QNA_IMG_NAME = ? 
+WHERE QNA_IMAGE_NO =? 
+</entry>
+
+<!-- qna 삭제 -->
+
+
+<entry key="deleteQna"> UPDATE QNA_BOARD SET QNA_FL = 'N' WHERE QNA_NO =? </entry>
+
+
+</properties>

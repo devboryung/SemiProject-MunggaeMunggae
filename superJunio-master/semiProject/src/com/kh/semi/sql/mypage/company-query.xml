@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+
+<!-- 전체 멤버 수 조회 -->
+<entry key="getListCount">
+SELECT COUNT(*) FROM TB_MEMBER
+WHERE SCSN_FL = 'N'
+AND MEM_GRADE = 'C'
+</entry>
+
+<!-- 일반회원 조회 -->
+<entry key="memberList">
+SELECT * FROM
+(SELECT ROWNUM RNUM, V.* FROM (SELECT MEM_NO, MEM_ID, NICKNAME, PHONE, COO_NM, COO_PHONE
+FROM COOPERATOR
+JOIN TB_MEMBER USING(MEM_NO)
+WHERE SCSN_FL = 'N'
+AND MEM_GRADE = 'C'
+ORDER BY MEM_NO DESC)V)
+WHERE RNUM BETWEEN ? AND ?
+</entry>
+
+<!-- 다음 게시글 번호 조회 -->
+<entry key="selectNextNo">
+SELECT SEQ_MNO.NEXTVAL FROM DUAL
+</entry>
+
+</properties>

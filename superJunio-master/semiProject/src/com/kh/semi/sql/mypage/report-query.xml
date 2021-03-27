@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+
+<!-- 신고 수 조회 -->
+<entry key="getListCount">
+SELECT COUNT(*) FROM BOARD_REPORT
+</entry>
+
+<!-- 신고 조회 -->
+<entry key="selectReport">
+SELECT * FROM
+(SELECT ROWNUM RNUM, V.* FROM (SELECT FREE_BOARD_NO,
+        FREE_BOARD_TITLE, MEM_ID, REPORT_TITLE, REPORT_CONTENT
+FROM BOARD_REPORT
+JOIN TB_MEMBER USING(MEM_NO)
+JOIN FREE_BOARD USING(FREE_BOARD_NO)
+ORDER BY REPORT_NO DESC)V)
+WHERE RNUM BETWEEN ? AND ?
+</entry>
+
+<!-- 다음 게시글 번호 조회 -->
+<entry key="selectNextNo">
+SELECT SEQ_MNO.NEXTVAL FROM DUAL
+</entry>
+
+</properties>
