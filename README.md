@@ -216,6 +216,6 @@
     - 확인 버튼을 누르면 숙소가 삭제되면서 목록으로 이동됩니다.
 ------------
 <p align="center">
-감사합니다.
+감사합니다. <br>
 관련 코드는 [여기](https://devboryung.github.io/categories/SemiProject)에서 확인하실 수 있습니다.
 </p>
