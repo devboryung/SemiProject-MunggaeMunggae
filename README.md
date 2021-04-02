@@ -217,5 +217,5 @@
 ------------
 <p align="center">
 감사합니다. <br>
-  관련 코드는 <a href="https://devboryung.github.io/categories/SemiProject">이곳</a> 에서 확인하실 수 있습니다.
+  관련 코드는 <a href="https://devboryung.github.io/categories/SemiProject">이곳</a>에서 확인하실 수 있습니다.
 </p>
